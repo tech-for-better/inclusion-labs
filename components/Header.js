@@ -7,10 +7,10 @@ import Link from 'next/link';
 export default function Header() {
 	return (
 		<div className={styles.headerContainer}>
-			<Image src={logo} width={170} height={20} />
+			<Image src={logo} alt='Logo' width={170} height={20} />
 			<Link href='/impact-areas'>
 				<a>
-					<Image src={home} width={60} height={50} />
+					<Image alt='Home button' src={home} width={30} height={30} />
 				</a>
 			</Link>
 		</div>

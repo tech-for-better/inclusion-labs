@@ -7,6 +7,7 @@ export default function Survey() {
 		<div className={styles.container}>
 			<Head>
 				<meta name='description' content='Inclusion Labs' />
+				<meta name='viewport' content='width=device-width, initial-scale=1' />
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<Header />

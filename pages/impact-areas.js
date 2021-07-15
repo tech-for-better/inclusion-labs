@@ -1,6 +1,6 @@
 import Head from 'next/head';
-import Image from 'next/image';
-import styles from '../styles/Home.module.css';
+import Link from 'next/link';
+import styles from '../styles/ImpactAreas.module.css';
 import Header from '../components/Header';
 
 export default function ImpactAreas() {
@@ -17,155 +17,59 @@ export default function ImpactAreas() {
 				<h1 className={styles.title}>Choose an impact area</h1>
 
 				<div className={styles.grid}>
-					<div className={styles.card}>
-						<h2>Impact area</h2>
-						<p>Score:</p>
-					</div>
+					<Link href='/survey'>
+						<a>
+							<div className={styles.card}>
+								<h2>Impact area</h2>
+								<p>Score:</p>
+							</div>
+						</a>
+					</Link>
 
-					<div className={styles.card}>
-						<h2>Impact area</h2>
-						<p>Score:</p>
-					</div>
+					<Link href='/survey'>
+						<a>
+							<div className={styles.card}>
+								<h2>Impact area</h2>
+								<p>Score:</p>
+							</div>
+						</a>
+					</Link>
 
-					<div className={styles.card}>
-						<h2>Impact area</h2>
-						<p>Score:</p>
-					</div>
+					<Link href='/survey'>
+						<a>
+							<div className={styles.card}>
+								<h2>Impact area</h2>
+								<p>Score:</p>
+							</div>
+						</a>
+					</Link>
 
-					<div className={styles.card}>
-						<h2>Impact area</h2>
-						<p>Score:</p>
-					</div>
+					<Link href='/survey'>
+						<a>
+							<div className={styles.card}>
+								<h2>Impact area</h2>
+								<p>Score:</p>
+							</div>
+						</a>
+					</Link>
 
-					<div className={styles.card}>
-						<h2>Impact area</h2>
-						<p>Score:</p>
-					</div>
+					<Link href='/survey'>
+						<a>
+							<div className={styles.card}>
+								<h2>Impact area</h2>
+								<p>Score:</p>
+							</div>
+						</a>
+					</Link>
 
-					<div className={styles.card}>
-						<h2>Impact area</h2>
-						<p>Score:</p>
-					</div>
-
-					<div className={styles.card}>
-						<h2>Impact area</h2>
-						<p>Score:</p>
-					</div>
-
-					<div className={styles.card}>
-						<h2>Impact area</h2>
-						<p>Score:</p>
-					</div>
-
-					<div className={styles.card}>
-						<h2>Impact area</h2>
-						<p>Score:</p>
-					</div>
-
-					<div className={styles.card}>
-						<h2>Impact area</h2>
-						<p>Score:</p>
-					</div>
-
-					<div className={styles.card}>
-						<h2>Impact area</h2>
-						<p>Score:</p>
-					</div>
-
-					<div className={styles.card}>
-						<h2>Impact area</h2>
-						<p>Score:</p>
-					</div>
-
-					<div className={styles.card}>
-						<h2>Impact area</h2>
-						<p>Score:</p>
-					</div>
-
-					<div className={styles.card}>
-						<h2>Impact area</h2>
-						<p>Score:</p>
-					</div>
-
-					<div className={styles.card}>
-						<h2>Impact area</h2>
-						<p>Score:</p>
-					</div>
-
-					<div className={styles.card}>
-						<h2>Impact area</h2>
-						<p>Score:</p>
-					</div>
-
-					<div className={styles.card}>
-						<h2>Impact area</h2>
-						<p>Score:</p>
-					</div>
-
-					<div className={styles.card}>
-						<h2>Impact area</h2>
-						<p>Score:</p>
-					</div>
-
-					<div className={styles.card}>
-						<h2>Impact area</h2>
-						<p>Score:</p>
-					</div>
-
-					<div className={styles.card}>
-						<h2>Impact area</h2>
-						<p>Score:</p>
-					</div>
-
-					<div className={styles.card}>
-						<h2>Impact area</h2>
-						<p>Score:</p>
-					</div>
-
-					<div className={styles.card}>
-						<h2>Impact area</h2>
-						<p>Score:</p>
-					</div>
-
-					<div className={styles.card}>
-						<h2>Impact area</h2>
-						<p>Score:</p>
-					</div>
-
-					<div className={styles.card}>
-						<h2>Impact area</h2>
-						<p>Score:</p>
-					</div>
-
-					<div className={styles.card}>
-						<h2>Impact area</h2>
-						<p>Score:</p>
-					</div>
-
-					<div className={styles.card}>
-						<h2>Impact area</h2>
-						<p>Score:</p>
-					</div>
-
-					<div className={styles.card}>
-						<h2>Impact area</h2>
-						<p>Score:</p>
-					</div>
-
-					<div className={styles.card}>
-						<h2>Impact area</h2>
-						<p>Score:</p>
-					</div>
-
-					<div className={styles.card}>
-						<h2>Impact area</h2>
-						<p>Score:</p>
-					</div>
-
-					<div className={styles.card}>
-						<h2>Impact area</h2>
-						<p>Score:</p>
-					</div>
+					<Link href='/survey'>
+						<a>
+							<div className={styles.card}>
+								<h2>Impact area</h2>
+								<p>Score:</p>
+							</div>
+						</a>
+					</Link>
 				</div>
 			</main>
 		</div>

@@ -23,7 +23,7 @@ export default function Header() {
 				<Image src={logo} alt='Logo' width={170} height={20} />
 				<Link href='/impact-areas'>
 					<a>
-						<Image alt='Home button' src={home} width={30} height={30} />
+						<Image src={home} alt='Home button' width={30} height={30} />
 					</a>
 				</Link>
 			</div>

@@ -1,9 +1,9 @@
 .container {
-	min-width: 100px;
-	max-width: 500px;
-	margin: 0 auto;
+    min-width: 100px;
+    max-width: 500px;
+    margin: 0 auto;
 }
 
 .login {
-	margin: 1.5rem;
+    margin: 1.5rem;
 }

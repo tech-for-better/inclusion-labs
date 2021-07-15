@@ -1,18 +1,13 @@
-import Head from 'next/head';
 import styles from '../styles/Survey.module.css';
 import Header from '../components/Header';
+import Link from 'next/link';
 
 export default function Survey() {
 	return (
 		<div className={styles.container}>
-			<Head>
-				<meta name='description' content='Inclusion Labs' />
-				<meta name='viewport' content='width=device-width, initial-scale=1' />
-				<link rel='icon' href='/favicon.ico' />
-			</Head>
 			<Header />
 			<main className={styles.main}>
-				<h1 className={styles.title}>Problem Area</h1>
+				<h1 className={styles.title}>Impact Area</h1>
 				<div>
 					<p>1. Question one</p>
 					<div>
@@ -43,7 +38,15 @@ export default function Survey() {
 						<label for='no'>No</label>
 					</div>
 				</div>
-				<input className={styles.button} type='submit' value='Submit'></input>
+				<Link href='/impact-areas'>
+					<a>
+						<input
+							className={styles.button}
+							type='submit'
+							value='Submit'
+						></input>
+					</a>
+				</Link>
 			</main>
 		</div>
 	);

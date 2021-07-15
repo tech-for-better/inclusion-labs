@@ -25,6 +25,12 @@
 
 .button {
     margin: 2rem;
+    background-color: #fdd017;
+    border: none;
+    color: #09215f;
+    padding: 0.5rem;
+    width: 5rem;
+    border-radius: 5px;
 }
 
 @media (max-width: 600px) {

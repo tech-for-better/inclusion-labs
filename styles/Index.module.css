@@ -1,0 +1,16 @@
+.container {
+    min-width: 100px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.headerContainer {
+    margin: 1rem;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5rem;
+}
+
+.login {
+    margin: 1.5rem;
+}

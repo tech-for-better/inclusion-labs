@@ -1,6 +1,6 @@
 import { supabase } from '../lib/initSupabase';
 import { Auth } from '@supabase/ui';
-import styles from '../styles/Login.module.css';
+import styles from '../styles/Index.module.css';
 import ImpactAreas from './impact-areas';
 import Head from 'next/head';
 import logo from '../public/images/logo.svg';
@@ -22,13 +22,7 @@ export default function IndexPage() {
 				/>
 			</Head>
 			<div className={styles.headerContainer}>
-				<Image
-					className={styles.headerImage}
-					src={logo}
-					alt='Logo'
-					width={300}
-					height={50}
-				/>
+				<Image src={logo} alt='Logo' width={300} height={50} />
 			</div>
 			<div className={styles.container}>
 				{!user ? (

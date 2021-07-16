@@ -1,4 +1,4 @@
-import { supabase } from '../lib/initSupabase';
+import { supabase } from '../api';
 import { Auth } from '@supabase/ui';
 import styles from '../styles/Index.module.css';
 import ImpactAreas from './impact-areas';

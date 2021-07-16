@@ -1,5 +1,5 @@
 import { Auth } from '@supabase/ui';
-import { supabase } from '../lib/initSupabase';
+import { supabase } from '../api';
 import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }) {

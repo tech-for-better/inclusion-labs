@@ -16,9 +16,9 @@ export default function Survey() {
 					</p>
 					<div>
 						<input type='radio' id='yes' name='1' value='yes' />
-						<label for='yes'>Yes</label>
+						<label htmlFor='yes'>Yes</label>
 						<input type='radio' id='no' name='1' value='no' />
-						<label for='no'>No</label>
+						<label htmlFor='no'>No</label>
 					</div>
 					<p>
 						How have you implemented a system that checks for biases when
@@ -26,9 +26,9 @@ export default function Survey() {
 					</p>
 					<div>
 						<input type='radio' id='yes' name='2' value='yes' />
-						<label for='yes'>Yes</label>
+						<label htmlFor='yes'>Yes</label>
 						<input type='radio' id='no' name='2' value='no' />
-						<label for='no'>No</label>
+						<label htmlFor='no'>No</label>
 					</div>
 					<p>
 						Are your displays regularly updated with student work as well as
@@ -36,9 +36,9 @@ export default function Survey() {
 					</p>
 					<div>
 						<input type='radio' id='yes' name='3' value='yes' />
-						<label for='yes'>Yes</label>
+						<label htmlFor='yes'>Yes</label>
 						<input type='radio' id='no' name='3' value='no' />
-						<label for='no'>No</label>
+						<label htmlFor='no'>No</label>
 					</div>
 					<p>
 						Do you offer a range of media and resources to educate students on
@@ -76,9 +76,9 @@ export default function Survey() {
 					</p>
 					<div>
 						<input type='radio' id='yes' name='4' value='yes' />
-						<label for='yes'>Yes</label>
+						<label htmlFor='yes'>Yes</label>
 						<input type='radio' id='no' name='4' value='no' />
-						<label for='no'>No</label>
+						<label htmlFor='no'>No</label>
 					</div>
 				</div>
 				<Link href='/impact-areas'>

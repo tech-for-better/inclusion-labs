@@ -1,8 +1,19 @@
 import Link from 'next/link';
 import styles from '../styles/ImpactAreas.module.css';
 import Header from '../components/Header';
+import { supabase } from '../api';
 
-export default function ImpactAreas() {
+export async function getServerSideProps() {
+	const { data } = await supabase.from('impact_areas').select('name');
+
+	return {
+		props: {
+			areas: data,
+		},
+	};
+}
+
+export default function ImpactAreas({ areas }) {
 	return (
 		<>
 			<Header />
@@ -10,59 +21,16 @@ export default function ImpactAreas() {
 				<h1 className={styles.title}>Choose an impact area</h1>
 
 				<div className={styles.grid}>
-					<Link href='/survey'>
-						<a>
-							<div className={styles.card}>
-								<h2>Faculty</h2>
-								<p>Score:</p>
-							</div>
-						</a>
-					</Link>
-
-					<Link href='/survey'>
-						<a>
-							<div className={styles.card}>
-								<h2>Curriculum</h2>
-								<p>Score:</p>
-							</div>
-						</a>
-					</Link>
-
-					<Link href='/survey'>
-						<a>
-							<div className={styles.card}>
-								<h2>Resources</h2>
-								<p>Score:</p>
-							</div>
-						</a>
-					</Link>
-
-					<Link href='/survey'>
-						<a>
-							<div className={styles.card}>
-								<h2>Teaching</h2>
-								<p>Score:</p>
-							</div>
-						</a>
-					</Link>
-
-					<Link href='/survey'>
-						<a>
-							<div className={styles.card}>
-								<h2>Assemblies</h2>
-								<p>Score:</p>
-							</div>
-						</a>
-					</Link>
-
-					<Link href='/survey'>
-						<a>
-							<div className={styles.card}>
-								<h2>Extra Curricular</h2>
-								<p>Score:</p>
-							</div>
-						</a>
-					</Link>
+					{areas.map((element) => (
+						<Link href='/survey'>
+							<a>
+								<div className={styles.card}>
+									<h2>{element.name}</h2>
+									<p>Score:</p>
+								</div>
+							</a>
+						</Link>
+					))}
 				</div>
 			</main>
 		</>

@@ -13,7 +13,7 @@ export default function ImpactAreas() {
 					<Link href='/survey'>
 						<a>
 							<div className={styles.card}>
-								<h2>Impact area</h2>
+								<h2>Faculty</h2>
 								<p>Score:</p>
 							</div>
 						</a>
@@ -22,7 +22,7 @@ export default function ImpactAreas() {
 					<Link href='/survey'>
 						<a>
 							<div className={styles.card}>
-								<h2>Impact area</h2>
+								<h2>Curriculum</h2>
 								<p>Score:</p>
 							</div>
 						</a>
@@ -31,7 +31,7 @@ export default function ImpactAreas() {
 					<Link href='/survey'>
 						<a>
 							<div className={styles.card}>
-								<h2>Impact area</h2>
+								<h2>Resources</h2>
 								<p>Score:</p>
 							</div>
 						</a>
@@ -40,7 +40,7 @@ export default function ImpactAreas() {
 					<Link href='/survey'>
 						<a>
 							<div className={styles.card}>
-								<h2>Impact area</h2>
+								<h2>Teaching</h2>
 								<p>Score:</p>
 							</div>
 						</a>
@@ -49,7 +49,7 @@ export default function ImpactAreas() {
 					<Link href='/survey'>
 						<a>
 							<div className={styles.card}>
-								<h2>Impact area</h2>
+								<h2>Assemblies</h2>
 								<p>Score:</p>
 							</div>
 						</a>
@@ -58,7 +58,7 @@ export default function ImpactAreas() {
 					<Link href='/survey'>
 						<a>
 							<div className={styles.card}>
-								<h2>Impact area</h2>
+								<h2>Extra Curricular</h2>
 								<p>Score:</p>
 							</div>
 						</a>

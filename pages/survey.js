@@ -21,29 +21,25 @@ export default function Survey({ questions }) {
 				<h1 className={styles.title}>Impact Area</h1>
 				<div>
 					{questions.map((question) => (
-						<Link href='/survey' key={question.id.toString()}>
-							<a>
-								<div className={styles.card}>
-									<p>{question.name}</p>
-									<div>
-										<input
-											type='radio'
-											id='yes'
-											name={question.name}
-											value='yes'
-										/>
-										<label htmlFor='yes'>Yes</label>
-										<input
-											type='radio'
-											id='no'
-											name={question.name}
-											value='no'
-										/>
-										<label htmlFor='no'>No</label>
-									</div>
-								</div>
-							</a>
-						</Link>
+						<div className={styles.card} key={question.id.toString()}>
+							<p>{question.name}</p>
+							<div className={styles.input}>
+								<input
+									type='radio'
+									id='yes'
+									name={question.id.toString()}
+									value='yes'
+								/>
+								<label htmlFor='yes'>Yes</label>
+								<input
+									type='radio'
+									id='no'
+									name={question.id.toString()}
+									value='no'
+								/>
+								<label htmlFor='no'>No</label>
+							</div>
+						</div>
 					))}
 				</div>
 				<Link href='/impact-areas'>

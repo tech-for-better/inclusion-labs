@@ -1,29 +1,53 @@
 import Header from '../components/Header';
-// import { getAllAreasIds, getPostData } from './impact-areas';
 import styles from '../styles/Survey.module.css';
 import Link from 'next/link';
 import { supabase } from '../api';
 import { useRouter } from 'next/router';
 
 export default function Post({ question }) {
-	console.log(question);
+	console.log(question[0].impact_area_name);
 	const router = useRouter();
 	if (router.isFallback) {
 		return <div>Loading...</div>;
 	}
 	return (
-		<div>
-			{question.map((el) => (
-				<div className={styles.card} key={el.id.toString()}>
-					<p>{el.name}</p>
-					<div className={styles.input}>
-						<input type='radio' id='yes' name={el.id.toString()} value='yes' />
-						<label htmlFor='yes'>Yes</label>
-						<input type='radio' id='no' name={el.id.toString()} value='no' />
-						<label htmlFor='no'>No</label>
-					</div>
+		<div className={styles.container}>
+			<Header />
+			<main className={styles.main}>
+				<div>
+					<h1 className={styles.title}>{question[0].impact_area_name}</h1>
+					{question.map((question) => (
+						<div className={styles.card} key={question.id.toString()}>
+							<p>{question.name}</p>
+							<div className={styles.input}>
+								<input
+									type='radio'
+									id='yes'
+									name={question.id.toString()}
+									value='yes'
+								/>
+								<label htmlFor='yes'>Yes</label>
+								<input
+									type='radio'
+									id='no'
+									name={question.id.toString()}
+									value='no'
+								/>
+								<label htmlFor='no'>No</label>
+							</div>
+						</div>
+					))}
 				</div>
-			))}
+				<Link href='/impact-areas'>
+					<a>
+						<input
+							className={styles.button}
+							type='submit'
+							value='Submit'
+						></input>
+					</a>
+				</Link>
+			</main>
 		</div>
 	);
 }
@@ -31,7 +55,9 @@ export default function Post({ question }) {
 export async function getStaticPaths() {
 	const { data } = await supabase.from('impact_areas').select('id');
 	const paths = data.map((area) => ({
-		params: { id: JSON.stringify(area.id) },
+		params: {
+			id: JSON.stringify(area.id),
+		},
 	}));
 	return {
 		paths,

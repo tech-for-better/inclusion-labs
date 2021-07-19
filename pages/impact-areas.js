@@ -13,30 +13,6 @@ export async function getServerSideProps() {
 	};
 }
 
-// export function getAllAreasIds({ areas }) {
-// 	return areas.map((area = area[id]) => {
-// 		return {
-// 			params: {
-// 				id: area,
-// 			},
-// 		};
-// 	});
-// }
-
-// export function getPostData(id) {
-// 	const fullPath = path.join(postsDirectory, `${id}.md`);
-// 	const fileContents = fs.readFileSync(fullPath, 'utf8');
-
-// 	// Use gray-matter to parse the post metadata section
-// 	const matterResult = matter(fileContents);
-
-// 	// Combine the data with the id
-// 	return {
-// 		id,
-// 		...matterResult.data,
-// 	};
-// }
-
 export default function ImpactAreas({ areas }) {
 	return (
 		<>

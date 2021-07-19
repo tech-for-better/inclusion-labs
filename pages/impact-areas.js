@@ -19,7 +19,6 @@ export default function ImpactAreas({ areas }) {
 			<Header />
 			<main className={styles.main}>
 				<h1 className={styles.title}>Choose an impact area</h1>
-
 				<div className={styles.grid}>
 					{areas.map((area) => (
 						<Link href='/survey' key={area.id.toString()}>

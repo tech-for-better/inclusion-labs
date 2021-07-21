@@ -4,8 +4,34 @@ import Link from 'next/link';
 import { supabase } from '../api';
 import { useRouter } from 'next/router';
 
+export async function getStaticPaths() {
+	const { data } = await supabase.from('impact_areas').select('id');
+	const paths = data.map((area) => ({
+		params: {
+			id: JSON.stringify(area.id),
+		},
+	}));
+	return {
+		paths,
+		fallback: true,
+	};
+}
+
+export async function getStaticProps({ params }) {
+	const { id } = params;
+	const { data } = await supabase
+		.from('questions')
+		.select()
+		.filter('impact_area_id', 'eq', id);
+
+	return {
+		props: {
+			question: data,
+		},
+	};
+}
+
 export default function Post({ question }) {
-	console.log(question[0].impact_area_name);
 	const router = useRouter();
 	if (router.isFallback) {
 		return <div>Loading...</div>;
@@ -50,31 +76,4 @@ export default function Post({ question }) {
 			</main>
 		</div>
 	);
-}
-
-export async function getStaticPaths() {
-	const { data } = await supabase.from('impact_areas').select('id');
-	const paths = data.map((area) => ({
-		params: {
-			id: JSON.stringify(area.id),
-		},
-	}));
-	return {
-		paths,
-		fallback: true,
-	};
-}
-
-export async function getStaticProps({ params }) {
-	const { id } = params;
-	const { data } = await supabase
-		.from('questions')
-		.select()
-		.filter('impact_area_id', 'eq', id);
-
-	return {
-		props: {
-			question: data,
-		},
-	};
 }

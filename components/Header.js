@@ -1,9 +1,9 @@
 import logo from '../public/images/logo.svg';
-import home from '../public/images/home.svg';
 import styles from './Header.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
 import Head from 'next/head';
+import { supabase } from '../api';
 
 export default function Header() {
 	return (
@@ -20,10 +20,22 @@ export default function Header() {
 				/>
 			</Head>
 			<div className={styles.headerContainer}>
-				<Image src={logo} alt='Logo' width={170} height={20} />
-				<Link href='/impact-areas'>
+				<Link href='/'>
 					<a>
-						<Image src={home} alt='Home button' width={30} height={30} />
+						<Image src={logo} alt='Logo' width={200} height={50} />
+					</a>
+				</Link>
+				<Link href='/'>
+					<a>
+						<button
+							className={styles.button}
+							onClick={async () => {
+								const { error } = await supabase.auth.signOut();
+								if (error) console.log('Error logging out:', error.message);
+							}}
+						>
+							Logout
+						</button>
 					</a>
 				</Link>
 			</div>

@@ -1,7 +1,7 @@
 import { supabase } from '../api';
 import { Auth } from '@supabase/ui';
 import styles from '../styles/Index.module.css';
-import ImpactAreas from './impact-areas';
+import ImpactAreas from '../components/ImpactAreas';
 import Head from 'next/head';
 import logo from '../public/images/logo.svg';
 import Image from 'next/image';
@@ -21,11 +21,11 @@ export default function IndexPage() {
 					rel='stylesheet'
 				/>
 			</Head>
-			<div className={styles.headerContainer}>
-				<Image src={logo} alt='Logo' width={300} height={50} />
-			</div>
-			<div className={styles.container}>
-				{!user ? (
+			{!user ? (
+				<div className={styles.container}>
+					<div className={styles.headerContainer}>
+						<Image src={logo} alt='Logo' width={300} height={50} />
+					</div>
 					<div className={styles.login}>
 						<Auth
 							styles={{ color: 'pink' }}
@@ -35,20 +35,10 @@ export default function IndexPage() {
 							socialButtonSize='xlarge'
 						/>
 					</div>
-				) : (
-					<div>
-						<ImpactAreas user={supabase.auth.user()} />
-						<button
-							onClick={async () => {
-								const { error } = await supabase.auth.signOut();
-								if (error) console.log('Error logging out:', error.message);
-							}}
-						>
-							Logout
-						</button>
-					</div>
-				)}
-			</div>
+				</div>
+			) : (
+				<ImpactAreas user={supabase.auth.user()} />
+			)}
 		</>
 	);
 }

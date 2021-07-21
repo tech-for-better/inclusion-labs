@@ -1,5 +1,16 @@
 .headerContainer {
-    display: flex;
-    justify-content: space-between;
-    margin: 1rem;
+	display: flex;
+	justify-content: space-between;
+	margin: 1rem;
+}
+
+.button {
+	background-color: #fdd017;
+	border: none;
+	color: #09215f;
+	padding: 0.5rem;
+	width: 5rem;
+	height: 2rem;
+	border-radius: 5px;
+	cursor: pointer;
 }

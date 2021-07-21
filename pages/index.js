@@ -21,11 +21,11 @@ export default function IndexPage() {
 					rel='stylesheet'
 				/>
 			</Head>
-			<div className={styles.headerContainer}>
-				<Image src={logo} alt='Logo' width={300} height={50} />
-			</div>
 			{!user ? (
 				<div className={styles.container}>
+					<div className={styles.headerContainer}>
+						<Image src={logo} alt='Logo' width={300} height={50} />
+					</div>
 					<div className={styles.login}>
 						<Auth
 							styles={{ color: 'pink' }}

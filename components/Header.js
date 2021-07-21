@@ -21,7 +21,7 @@ export default function Header() {
 			</Head>
 			<div className={styles.headerContainer}>
 				<Image src={logo} alt='Logo' width={170} height={20} />
-				<Link href='/impact-areas'>
+				<Link href='/'>
 					<a>
 						<Image src={home} alt='Home button' width={30} height={30} />
 					</a>

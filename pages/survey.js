@@ -42,7 +42,7 @@ export default function Survey({ questions }) {
 						</div>
 					))}
 				</div>
-				<Link href='/impact-areas'>
+				<Link href='/'>
 					<a>
 						<input
 							className={styles.button}

@@ -1,4 +1,7 @@
 import Link from 'next/link';
+import Image from 'next/image';
+import Header from '../components/Header';
+import logo from '../public/images/logo.svg';
 import styles from '../styles/ImpactAreas.module.css';
 import { useState, useEffect } from 'react';
 import { supabase } from '../api';
@@ -21,6 +24,7 @@ export default function ImpactAreas() {
 
 	return (
 		<>
+			<Header />
 			<main className={styles.main}>
 				<h1 className={styles.title}> Choose an impact area </h1>
 				<div className={styles.grid}>
@@ -34,17 +38,6 @@ export default function ImpactAreas() {
 							</a>
 						</Link>
 					))}
-				</div>
-				<div className={styles.buttonContainer}>
-					<button
-						className={styles.button}
-						onClick={async () => {
-							const { error } = await supabase.auth.signOut();
-							if (error) console.log('Error logging out:', error.message);
-						}}
-					>
-						Logout
-					</button>
 				</div>
 			</main>
 		</>

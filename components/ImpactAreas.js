@@ -1,14 +1,11 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import Header from '../components/Header';
-import logo from '../public/images/logo.svg';
 import styles from '../styles/ImpactAreas.module.css';
 import { useState, useEffect } from 'react';
 import { supabase } from '../api';
 
 export default function ImpactAreas() {
 	const [areas, setAreas] = useState([]);
-	const [errorText, setError] = useState('');
 
 	useEffect(() => {
 		fetchAreas();

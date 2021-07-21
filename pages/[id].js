@@ -1,26 +1,48 @@
-import styles from '../styles/Survey.module.css';
 import Header from '../components/Header';
+import styles from '../styles/Survey.module.css';
 import Link from 'next/link';
 import { supabase } from '../api';
+import { useRouter } from 'next/router';
 
-export async function getServerSideProps() {
-	const { data } = await supabase.from('questions').select('id, name');
+export async function getStaticPaths() {
+	const { data } = await supabase.from('impact_areas').select('id');
+	const paths = data.map((area) => ({
+		params: {
+			id: JSON.stringify(area.id),
+		},
+	}));
+	return {
+		paths,
+		fallback: true,
+	};
+}
+
+export async function getStaticProps({ params }) {
+	const { id } = params;
+	const { data } = await supabase
+		.from('questions')
+		.select()
+		.filter('impact_area_id', 'eq', id);
 
 	return {
 		props: {
-			questions: data,
+			question: data,
 		},
 	};
 }
 
-export default function Survey({ questions }) {
+export default function Post({ question }) {
+	const router = useRouter();
+	if (router.isFallback) {
+		return <div>Loading...</div>;
+	}
 	return (
 		<div className={styles.container}>
 			<Header />
 			<main className={styles.main}>
-				<h1 className={styles.title}>Impact Area</h1>
 				<div>
-					{questions.map((question) => (
+					<h1 className={styles.title}>{question[0].impact_area_name}</h1>
+					{question.map((question) => (
 						<div className={styles.card} key={question.id.toString()}>
 							<p>{question.name}</p>
 							<div className={styles.input}>

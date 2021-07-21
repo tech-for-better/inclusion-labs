@@ -25,6 +25,19 @@ export default function Header() {
 						<Image src={logo} alt='Logo' width={200} height={50} />
 					</a>
 				</Link>
+				<Link href='/'>
+					<a>
+						<button
+							className={styles.button}
+							onClick={async () => {
+								const { error } = await supabase.auth.signOut();
+								if (error) console.log('Error logging out:', error.message);
+							}}
+						>
+							Logout
+						</button>
+					</a>
+				</Link>
 				<button
 					className={styles.button}
 					onClick={async () => {

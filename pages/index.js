@@ -11,6 +11,7 @@ export default function IndexPage() {
 	return (
 		<>
 			<Head>
+				<title>Inclusion Labs</title>
 				<meta name='description' content='Inclusion Labs' />
 				<meta name='viewport' content='width=device-width, initial-scale=1' />
 				<link rel='icon' href='/favicon.ico' />

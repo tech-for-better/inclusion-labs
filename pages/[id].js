@@ -1,4 +1,4 @@
-import Header from '../components/Header';
+import Header from '../components/Header/Header';
 import styles from '../styles/id.module.css';
 import Link from 'next/link';
 import { supabase } from '../api';

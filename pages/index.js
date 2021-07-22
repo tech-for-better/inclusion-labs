@@ -1,7 +1,7 @@
 import { supabase } from '../api';
 import { Auth } from '@supabase/ui';
 import styles from '../styles/Index.module.css';
-import ImpactAreas from '../components/ImpactAreas';
+import ImpactAreas from '../components/ImpactAreas/ImpactAreas';
 import Head from 'next/head';
 import logo from '../public/images/logo.svg';
 import Image from 'next/image';

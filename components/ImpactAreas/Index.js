@@ -1,8 +1,8 @@
 import Link from 'next/link';
-import Header from '../components/Header';
-import styles from '../styles/ImpactAreas.module.css';
+import Header from '../Header';
+import styles from './ImpactAreas.module.css';
 import { useState, useEffect } from 'react';
-import { supabase } from '../api';
+import { supabase } from '../../api';
 
 export default function ImpactAreas() {
 	const [areas, setAreas] = useState([]);

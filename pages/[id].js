@@ -1,5 +1,5 @@
 import Header from '../components/Header';
-import styles from '../styles/Survey.module.css';
+import styles from '../styles/id.module.css';
 import Link from 'next/link';
 import { supabase } from '../api';
 import { useRouter } from 'next/router';

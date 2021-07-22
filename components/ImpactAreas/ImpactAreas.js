@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Header from '../Header';
+import Header from '../Header/Header';
 import styles from './ImpactAreas.module.css';
 import { useState, useEffect } from 'react';
 import { supabase } from '../../api';

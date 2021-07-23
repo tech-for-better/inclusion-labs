@@ -3,6 +3,7 @@ import Header from '../Header/Header';
 import styles from './ImpactAreas.module.css';
 import { useState, useEffect } from 'react';
 import { supabase } from '../../api';
+import Footer from '../Footer/Footer';
 
 export default function ImpactAreas() {
 	const [areas, setAreas] = useState([]);
@@ -22,6 +23,7 @@ export default function ImpactAreas() {
 	return (
 		<>
 			<Header />
+
 			<main className={styles.main}>
 				<h1 className={styles.title}> Choose an impact area </h1>
 				<div className={styles.grid}>
@@ -36,6 +38,7 @@ export default function ImpactAreas() {
 						</Link>
 					))}
 				</div>
+				<Footer />
 			</main>
 		</>
 	);

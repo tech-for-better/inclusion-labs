@@ -31,7 +31,7 @@ export default function ImpactAreas() {
 						<Link href={area.id.toString()} key={area.id.toString()}>
 							<a>
 								<div className={styles.card}>
-									<h2> {area.name} </h2> <p> Total points: 50 </p>
+									<h2> {area.name} </h2> <p> Total points: 60 </p>
 									<p> Your points: 0 </p>
 								</div>
 							</a>

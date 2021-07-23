@@ -35,7 +35,7 @@ export default function Header() {
 								if (error) console.log('Error logging out:', error.message);
 							}}
 						>
-							Logout
+							Sign out
 						</button>
 					</a>
 				</Link>

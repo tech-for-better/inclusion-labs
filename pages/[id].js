@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 import { Auth } from '@supabase/ui';
 import logo from '../public/images/logo.svg';
 import Image from 'next/image';
+import Footer from '../components/Footer/Footer';
 
 export async function getStaticPaths() {
 	const { data } = await supabase.from('impact_areas').select('id');
@@ -95,6 +96,7 @@ export default function Post({ question }) {
 							</a>
 						</Link>
 					</main>
+					<Footer />
 				</div>
 			)}
 		</>

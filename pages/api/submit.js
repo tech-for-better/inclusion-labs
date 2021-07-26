@@ -1,18 +1,32 @@
 import { supabase } from '../../api';
 
-const getUser = async (req, res) => {
+const addAnswers = async (req, res) => {
 	const { user } = await supabase.auth.api.getUserByCookie(req);
-	console.log(user.id);
 	if (req.method === 'POST') {
-		console.log(req.body); // { message: "hello this is my message" }
-		// supabase.from('answers').insert(req.body); // you'll probs need to change the form data to fit your schema etc
-		// res.redirect('/success'); // or wherever you wanna go after
-		for (const [key, value] of Object.entries(req.body)) {
-			console.log(key, value);
-		}
+		// for (const [key, value] of Object.entries(req.body)) {
+		// 	supabase.from('answers').insert([
+		// 		{
+		// 			question_id: key,
+		// 			answer: value,
+		// 			user_id: user.id,
+		// 		},
+		// 	]);
+
+		supabase
+			.from('answers')
+			.insert([
+				{
+					question_id: 1,
+					answer: 'yes',
+					user_id: user.id,
+				},
+			])
+			.single();
+
+		res.redirect('/');
 	} else {
 		res.status(404).send('Not found');
 	}
 };
 
-export default getUser;
+export default addAnswers;

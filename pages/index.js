@@ -89,5 +89,5 @@ const Index = ({ areas }) => {
 		</>
 	);
 };
-// };
+
 export default Index;

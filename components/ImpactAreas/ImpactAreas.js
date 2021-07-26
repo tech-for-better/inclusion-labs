@@ -1,33 +1,16 @@
 import Link from 'next/link';
 import Header from '../Header/Header';
 import styles from './ImpactAreas.module.css';
-import { useState, useEffect } from 'react';
-import { supabase } from '../../api';
 import Footer from '../Footer/Footer';
 
-export default function ImpactAreas() {
-	const [areas, setAreas] = useState([]);
-
-	useEffect(() => {
-		fetchAreas();
-	}, []);
-
-	const fetchAreas = async () => {
-		let { data: areas, error } = await supabase
-			.from('impact_areas')
-			.select('*');
-		if (error) console.log('error', error);
-		else setAreas(areas);
-	};
-
+export default function ImpactAreas({ data }) {
 	return (
 		<>
 			<Header />
-
 			<main className={styles.main}>
 				<h1 className={styles.title}> Choose an Impact Area </h1>
 				<div className={styles.grid}>
-					{areas.map((area) => (
+					{data.map((area) => (
 						<Link href={area.id.toString()} key={area.id.toString()}>
 							<a>
 								<div className={styles.card}>

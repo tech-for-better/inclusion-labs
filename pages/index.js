@@ -6,7 +6,16 @@ import Head from 'next/head';
 import logo from '../public/images/logo.svg';
 import Image from 'next/image';
 
-export default function IndexPage() {
+export async function getServerSideProps() {
+	const { data } = await supabase.from('impact_areas').select('*');
+	return {
+		props: {
+			data: data,
+		},
+	};
+}
+
+export default function IndexPage({ data }) {
 	const { user } = Auth.useUser();
 	return (
 		<>
@@ -38,7 +47,7 @@ export default function IndexPage() {
 					</div>
 				</div>
 			) : (
-				<ImpactAreas user={supabase.auth.user()} />
+				<ImpactAreas user={supabase.auth.user()} data={data} />
 			)}
 		</>
 	);

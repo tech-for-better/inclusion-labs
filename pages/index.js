@@ -1,5 +1,7 @@
 import { supabase } from '../api';
+import useSWR from 'swr';
 import { Auth } from '@supabase/ui';
+import { useEffect, useState } from 'react';
 import styles from '../styles/Index.module.css';
 import ImpactAreas from '../components/ImpactAreas/ImpactAreas';
 import Head from 'next/head';
@@ -10,13 +12,48 @@ export async function getServerSideProps() {
 	const { data } = await supabase.from('impact_areas').select('*');
 	return {
 		props: {
-			data: data,
+			areas: data,
 		},
 	};
 }
 
-export default function IndexPage({ data }) {
-	const { user } = Auth.useUser();
+const fetcher = (url, token) =>
+	fetch(url, {
+		method: 'GET',
+		headers: new Headers({ 'Content-Type': 'application/json', token }),
+		credentials: 'same-origin',
+	}).then((res) => res.json());
+
+const Index = ({ areas }) => {
+	const { user, session } = Auth.useUser();
+	const { data, error } = useSWR(
+		session ? ['/api/getUser', session.access_token] : null,
+		fetcher
+	);
+	const [authView, setAuthView] = useState('sign_in');
+
+	useEffect(() => {
+		const { data: authListener } = supabase.auth.onAuthStateChange(
+			(event, session) => {
+				if (event === 'PASSWORD_RECOVERY') setAuthView('forgotten_password');
+				if (event === 'USER_UPDATED')
+					setTimeout(() => setAuthView('sign_in'), 1000);
+				// Send session to /api/auth route to set the auth cookie.
+				// NOTE: this is only needed if you're doing SSR (getServerSideProps)!
+				fetch('/api/auth', {
+					method: 'POST',
+					headers: new Headers({ 'Content-Type': 'application/json' }),
+					credentials: 'same-origin',
+					body: JSON.stringify({ event, session }),
+				}).then((res) => res.json());
+			}
+		);
+
+		return () => {
+			authListener.unsubscribe();
+		};
+	}, []);
+
 	return (
 		<>
 			<Head>
@@ -47,8 +84,10 @@ export default function IndexPage({ data }) {
 					</div>
 				</div>
 			) : (
-				<ImpactAreas user={supabase.auth.user()} data={data} />
+				<ImpactAreas user={user} areas={areas} />
 			)}
 		</>
 	);
-}
+};
+// };
+export default Index;

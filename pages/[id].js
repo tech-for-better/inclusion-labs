@@ -7,8 +7,15 @@ import logo from '../public/images/logo.svg';
 import Image from 'next/image';
 import Footer from '../components/Footer/Footer';
 
-export async function getServerSideProps({ params }) {
+export async function getServerSideProps({ params, req }) {
+	const { user } = await supabase.auth.api.getUserByCookie(req);
+
 	const { id } = params;
+
+	if (!user) {
+		// If no user, redirect to index.
+		return { props: {}, redirect: { destination: '/', permanent: false } };
+	}
 	const { data } = await supabase
 		.from('questions')
 		.select()
@@ -17,12 +24,12 @@ export async function getServerSideProps({ params }) {
 	return {
 		props: {
 			question: data,
+			user: user,
 		},
 	};
 }
 
-export default function Post({ question }) {
-	const { user } = Auth.useUser();
+export default function Post({ question, user }) {
 	const router = useRouter();
 	if (router.isFallback) {
 		return <div>Loading...</div>;

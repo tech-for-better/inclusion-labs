@@ -3,14 +3,14 @@ import Header from '../Header/Header';
 import styles from './ImpactAreas.module.css';
 import Footer from '../Footer/Footer';
 
-export default function ImpactAreas({ data }) {
+export default function ImpactAreas({ areas }) {
 	return (
 		<>
 			<Header />
 			<main className={styles.main}>
 				<h1 className={styles.title}> Choose an Impact Area </h1>
 				<div className={styles.grid}>
-					{data.map((area) => (
+					{areas.map((area) => (
 						<Link href={area.id.toString()} key={area.id.toString()}>
 							<a>
 								<div className={styles.card}>

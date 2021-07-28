@@ -9,11 +9,13 @@ import logo from '../public/images/logo.svg';
 import Image from 'next/image';
 
 export async function getServerSideProps() {
-	const { data } = await supabase.from('impact_areas').select('*');
+	const [areas, scores] = await Promise.all([
+		supabase.from('impact_areas').select('*'),
+		supabase.from('scores').select('*'),
+	]);
+
 	return {
-		props: {
-			areas: data,
-		},
+		props: { areas: areas.data, scores: scores.data },
 	};
 }
 
@@ -24,7 +26,7 @@ const fetcher = (url, token) =>
 		credentials: 'same-origin',
 	}).then((res) => res.json());
 
-const Index = ({ areas }) => {
+const Index = ({ areas, scores }) => {
 	const { user, session } = Auth.useUser();
 	const { data, error } = useSWR(
 		session ? ['/api/getUser', session.access_token] : null,
@@ -84,7 +86,7 @@ const Index = ({ areas }) => {
 					</div>
 				</div>
 			) : (
-				<ImpactAreas user={user} areas={areas} />
+				<ImpactAreas user={user} areas={areas} scores={scores} />
 			)}
 		</>
 	);

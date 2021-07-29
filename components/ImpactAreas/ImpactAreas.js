@@ -3,11 +3,14 @@ import Header from '../Header/Header';
 import styles from './ImpactAreas.module.css';
 import Footer from '../Footer/Footer';
 
-export default function ImpactAreas({ areas, scores }) {
+export default function ImpactAreas({ user, areas, scores }) {
 	for (let area of areas) {
+		area.score = 0;
 		for (let score of scores) {
-			if (Object.values(score).includes(area.name)) {
-				area.total = score.total;
+			if (
+				Object.values(score).includes(area.name) &&
+				Object.values(score).includes(user.id)
+			) {
 				area.score = score.score;
 			}
 		}
@@ -25,7 +28,7 @@ export default function ImpactAreas({ areas, scores }) {
 								<div className={styles.card}>
 									<h2> {area.name} </h2>
 									<p> Your points: {area.score} </p>
-									<p> Total points: {area.total} </p>
+									<p> Total points: {area.total_questions} </p>
 								</div>
 							</a>
 						</Link>

@@ -8,10 +8,11 @@ import Head from 'next/head';
 import logo from '../public/images/logo.svg';
 import Image from 'next/image';
 
-export async function getServerSideProps() {
+export async function getServerSideProps({ req }) {
+	const { user } = await supabase.auth.api.getUserByCookie(req);
 	const [areas, scores] = await Promise.all([
 		supabase.from('impact_areas').select('*'),
-		supabase.from('scores').select('*'),
+		supabase.from('scores').select('*').filter('user_id', 'eq', user.id),
 	]);
 
 	return {

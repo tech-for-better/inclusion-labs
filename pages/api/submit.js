@@ -6,6 +6,34 @@ const addAnswers = async (req, res) => {
 		let score = Object.values(req.body).filter((x) => x === 'yes').length;
 		let questionId = Object.keys(req.body)[0];
 
+		for (const [key, value] of Object.entries(req.body)) {
+			const { data } = await supabase
+				.from('answers')
+				.select('*')
+				.filter('user_id', 'eq', user.id)
+				.filter('question_id', 'eq', key);
+			if (data.length === 0) {
+				await supabase.from('answers').insert([
+					{
+						question_id: key,
+						answer: value,
+						user_id: user.id,
+					},
+				]);
+			} else {
+				await supabase
+					.from('answers')
+					.update([
+						{
+							answer: value,
+						},
+					])
+					.eq('question_id', key)
+					.eq('user_id', user.id)
+					.single();
+			}
+		}
+
 		const { data } = await supabase
 			.from('questions')
 			.select('impact_area_name')
@@ -19,16 +47,6 @@ const addAnswers = async (req, res) => {
 				user_id: user.id,
 			},
 		]);
-
-		for (const [key, value] of Object.entries(req.body)) {
-			await supabase.from('answers').insert([
-				{
-					question_id: key,
-					answer: value,
-					user_id: user.id,
-				},
-			]);
-		}
 		res.redirect('/');
 	} else {
 		res.status(404).send('Not found');

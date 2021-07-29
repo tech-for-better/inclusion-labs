@@ -67,6 +67,7 @@ export default function Post({ question, user }) {
 												id='yes'
 												name={question.id.toString()}
 												value='yes'
+												required
 											/>
 											<label htmlFor='yes'>Yes</label>
 											<input
@@ -74,6 +75,7 @@ export default function Post({ question, user }) {
 												id='no'
 												name={question.id.toString()}
 												value='no'
+												required
 											/>
 											<label htmlFor='no'>No</label>
 										</div>

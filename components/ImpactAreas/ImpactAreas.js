@@ -3,7 +3,16 @@ import Header from '../Header/Header';
 import styles from './ImpactAreas.module.css';
 import Footer from '../Footer/Footer';
 
-export default function ImpactAreas({ areas }) {
+export default function ImpactAreas({ areas, scores }) {
+	for (let area of areas) {
+		for (let score of scores) {
+			if (Object.values(score).includes(area.name)) {
+				area.total = score.total;
+				area.score = score.score;
+			}
+		}
+	}
+
 	return (
 		<>
 			<Header />
@@ -14,8 +23,9 @@ export default function ImpactAreas({ areas }) {
 						<Link href={area.id.toString()} key={area.id.toString()}>
 							<a>
 								<div className={styles.card}>
-									<h2> {area.name} </h2> <p> Total points: 60 </p>
-									<p> Your points: 0 </p>
+									<h2> {area.name} </h2>
+									<p> Your points: {area.score} </p>
+									<p> Total points: {area.total} </p>
 								</div>
 							</a>
 						</Link>

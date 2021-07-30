@@ -13,7 +13,6 @@ export async function getServerSideProps({ params, req }) {
 	const { id } = params;
 
 	if (!user) {
-		// If no user, redirect to index.
 		return { props: {}, redirect: { destination: '/', permanent: false } };
 	}
 	const { data } = await supabase

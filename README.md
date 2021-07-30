@@ -1,7 +1,7 @@
 # Inclusion Labs
  Self-assessment tool for schools to conduct an audit into how they are meeting different impact areas in terms of diversity, equity and inclusion.
  
-Visit our app here: https://inclusionlabs.netlify.app/
+Visit the app here: https://inclusionlabs.netlify.app/
 
  
  # Tech Stack

@@ -9,7 +9,7 @@ export default function ImpactAreas({ user, areas, scores }) {
 		for (let score of scores) {
 			if (
 				Object.values(score).includes(area.name) &&
-				Object.values(score).includes(user.id)
+				Object.values(score).includes(user.email)
 			) {
 				area.score = score.score;
 			}

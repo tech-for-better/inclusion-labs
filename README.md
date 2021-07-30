@@ -1,34 +1,22 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Inclusion Labs
+ Self-assessment tool for schools to conduct an audit into how they are meeting different impact areas in terms of diversity, equity and inclusion.
+ 
+Visit our app here: https://inclusionlabs.netlify.app/
 
-## Getting Started
+ 
+ # Tech Stack
+ - Next.js
+ - Supabase: Authentication & Database
+ 
+  # Deployment
+  - Netlify
+ 
+ <img width="1435" alt="Screenshot 2021-07-30 at 17 42 36" src="https://user-images.githubusercontent.com/52172604/127685308-1c96c3fa-5c77-4995-9117-e41c9af2decc.png">
+ 
+ <img width="1432" alt="Screenshot 2021-07-30 at 17 41 40" src="https://user-images.githubusercontent.com/52172604/127685335-96d49958-6402-4d9b-8d0e-7d96ad3ffb8b.png">
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+ 
+ # Team
+- [Evgeny Pletnev](https://github.com/epletnev) - Software Developer
+- [Nafisa Axmed](https://github.com/nafisa20) - Software Developer

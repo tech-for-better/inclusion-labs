@@ -40,13 +40,31 @@ const addAnswers = async (req, res) => {
 			.filter('id', 'eq', questionId)
 			.single();
 
-		await supabase.from('scores').insert([
-			{
-				impact_area_name: data.impact_area_name,
-				score: score,
-				user_id: user.id,
-			},
-		]);
+		const scoreResult = await supabase
+			.from('scores')
+			.select('*')
+			.filter('user_id', 'eq', user.id)
+			.filter('impact_area_name', 'eq', data.impact_area_name);
+		if (scoreResult.data.length === 0) {
+			await supabase.from('scores').insert([
+				{
+					impact_area_name: data.impact_area_name,
+					score: score,
+					user_id: user.id,
+				},
+			]);
+		} else {
+			await supabase
+				.from('scores')
+				.update([
+					{
+						score: score,
+					},
+				])
+				.eq('impact_area_name', data.impact_area_name)
+				.eq('user_id', user.id)
+				.single();
+		}
 		res.redirect('/');
 	} else {
 		res.status(404).send('Not found');

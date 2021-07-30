@@ -10,14 +10,14 @@ const addAnswers = async (req, res) => {
 			const { data } = await supabase
 				.from('answers')
 				.select('*')
-				.filter('user_id', 'eq', user.id)
+				.filter('user_email', 'eq', user.email)
 				.filter('question_id', 'eq', key);
 			if (data.length === 0) {
 				await supabase.from('answers').insert([
 					{
 						question_id: key,
 						answer: value,
-						user_id: user.id,
+						user_email: user.email,
 					},
 				]);
 			} else {
@@ -29,7 +29,7 @@ const addAnswers = async (req, res) => {
 						},
 					])
 					.eq('question_id', key)
-					.eq('user_id', user.id)
+					.eq('user_email', user.email)
 					.single();
 			}
 		}
@@ -43,14 +43,14 @@ const addAnswers = async (req, res) => {
 		const scoreResult = await supabase
 			.from('scores')
 			.select('*')
-			.filter('user_id', 'eq', user.id)
+			.filter('user_email', 'eq', user.email)
 			.filter('impact_area_name', 'eq', data.impact_area_name);
 		if (scoreResult.data.length === 0) {
 			await supabase.from('scores').insert([
 				{
 					impact_area_name: data.impact_area_name,
 					score: score,
-					user_id: user.id,
+					user_email: user.email,
 				},
 			]);
 		} else {
@@ -62,7 +62,7 @@ const addAnswers = async (req, res) => {
 					},
 				])
 				.eq('impact_area_name', data.impact_area_name)
-				.eq('user_id', user.id)
+				.eq('user_email', user.email)
 				.single();
 		}
 		res.redirect('/');

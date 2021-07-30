@@ -27,8 +27,10 @@ export default function ImpactAreas({ user, areas, scores }) {
 							<a>
 								<div className={styles.card}>
 									<h2> {area.name} </h2>
-									<p> Your points: {area.score} </p>
-									<p> Total points: {area.total_questions} </p>
+									<p className={styles.points}> Your points: {area.score} </p>
+									<p className={styles.points}>
+										Total points: {area.total_questions}
+									</p>
 								</div>
 							</a>
 						</Link>

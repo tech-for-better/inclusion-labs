@@ -40,6 +40,7 @@ const addAnswers = async (req, res) => {
 			.filter('id', 'eq', questionId)
 			.single();
 
+		// Updating scores
 		const scoreResult = await supabase
 			.from('scores')
 			.select('*')
